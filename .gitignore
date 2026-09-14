@@ -1,0 +1,12 @@
+# Generated EFI trees and download cache
+/out/
+/cache/
+/*.zip
+
+# Python
+__pycache__/
+*.pyc
+
+# OS noise
+.DS_Store
+Thumbs.db

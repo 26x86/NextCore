@@ -1,0 +1,5 @@
+* text=auto eol=lf
+*.ps1 text eol=crlf
+*.EFI binary
+*.efi binary
+*.zip binary

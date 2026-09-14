@@ -1,0 +1,37 @@
+{
+  "schema": "nextcore.public-binary/1",
+  "product": "NextCore",
+  "version": "v1.0.0",
+  "owner": "26x86",
+  "public_repo": "26x86/NextCore",
+  "generated_utc": "2026-09-14T10:44:16Z",
+  "artifacts": [
+    {
+      "path": "NEXTCORE/BOOTX64.EFI",
+      "role": "NextCore picker (x86_64 UEFI application, chain-loaded from OpenCore as \\EFI\\NEXTCORE\\BOOTX64.EFI)",
+      "bytes": 193024,
+      "sha256": "2ea10a228271fe3d2d00584e74ca960b9ba77b2d56a79de752bb6957fb8faa91",
+      "target": "x86_64-unknown-uefi",
+      "build_profile": "release",
+      "features": ["apfs-jumpstart", "console-control"]
+    }
+  ],
+  "source": {
+    "repository": "private engineering monorepo (not published)",
+    "base_commit": "0aee8b71850ef82bb61d218c7d7ac6401b24b042",
+    "working_tree": "dirty (nextcore-efi picker changes not yet committed at build time)"
+  },
+  "macos_boot_verified": false,
+  "physical_hardware_verified": false,
+  "layer_status": {
+    "x86_uefi_firmware_load": "staged_on_usb_boot_not_confirmed",
+    "opencore_chainload": "staged_on_usb_boot_not_confirmed",
+    "macos_recovery": "not_attempted",
+    "macos_boot": "not_attempted"
+  },
+  "notes": [
+    "Binary only. No source, no private research inputs, no Apple assets.",
+    "Verify against MANIFEST.sha256 before use.",
+    "Booting to the picker is not a macOS boot claim."
+  ]
+}

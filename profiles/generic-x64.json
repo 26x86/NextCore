@@ -1,0 +1,81 @@
+{
+  "name": "generic-x64",
+  "description": "Minimal x86_64 UEFI profile: OpenCore picker with NextCore and UEFI Shell entries. Sample.plist quirk defaults, no ACPI, no kexts.",
+  "note": "Generic NextCore picker config generated from the official OpenCore Sample.plist. Replace serial/MLB/UUID before use. No kexts, no ACPI patches. Booting the picker is not a macOS boot.",
+  "drivers": [
+    { "Path": "OpenRuntime.efi", "Comment": "Required by OpenCore" },
+    { "Path": "OpenHfsPlus.efi", "Comment": "HFS+ reader (redistributable, from the OpenCore release)" }
+  ],
+  "tools": [
+    { "Path": "OpenShell.efi", "Comment": "UEFI Shell (boot entry only, never a driver)" }
+  ],
+  "set": {
+    "ACPI.Add": [],
+    "ACPI.Delete": [],
+    "ACPI.Patch": [],
+
+    "DeviceProperties.Add": {},
+    "DeviceProperties.Delete": {},
+
+    "Kernel.Add": [],
+    "Kernel.Block": [],
+    "Kernel.Force": [],
+    "Kernel.Patch": [],
+    "Kernel.Emulate.Cpuid1Data": { "$data": "" },
+    "Kernel.Emulate.Cpuid1Mask": { "$data": "" },
+    "Kernel.Scheme.KernelArch": "x86_64",
+
+    "Misc.BlessOverride": [],
+    "Misc.Boot.ShowPicker": true,
+    "Misc.Boot.PickerMode": "Builtin",
+    "Misc.Boot.PickerVariant": "Auto",
+    "Misc.Boot.Timeout": 5,
+    "Misc.Boot.HideAuxiliary": false,
+    "Misc.Boot.PollAppleHotKeys": true,
+    "Misc.Boot.PickerAttributes": 0,
+    "Misc.Boot.HibernateMode": "None",
+    "Misc.Boot.LauncherOption": "Disabled",
+    "Misc.Debug.DisableWatchDog": true,
+    "Misc.Entries": [
+      {
+        "Arguments": "",
+        "Auxiliary": false,
+        "Comment": "NextCore picker",
+        "Enabled": true,
+        "Flavour": "Auto",
+        "Name": "NextCore Picker",
+        "Path": "\\EFI\\NEXTCORE\\BOOTX64.EFI",
+        "TextMode": false
+      },
+      {
+        "Arguments": "",
+        "Auxiliary": false,
+        "Comment": "UEFI Shell helper",
+        "Enabled": true,
+        "Flavour": "OpenShell:UEFIShell:Shell",
+        "Name": "UEFI Shell",
+        "Path": "\\EFI\\OC\\Tools\\OpenShell.efi",
+        "TextMode": false
+      }
+    ],
+    "Misc.Security.ScanPolicy": 0,
+    "Misc.Security.SecureBootModel": "Disabled",
+    "Misc.Security.Vault": "Optional",
+    "Misc.Security.AllowSetDefault": true,
+    "Misc.Security.DmgLoading": "Signed",
+    "Misc.Tools": [],
+
+    "NVRAM.Add.7C436110-AB2A-4BBB-A880-FE41995C9F82.boot-args": "-v keepsyms=1",
+    "NVRAM.Add.7C436110-AB2A-4BBB-A880-FE41995C9F82.prev-lang:kbd": { "$data": "ZW4tVVM6MA==" },
+    "NVRAM.Add.7C436110-AB2A-4BBB-A880-FE41995C9F82.csr-active-config": { "$data": "AAAAAA==" },
+    "NVRAM.Add.7C436110-AB2A-4BBB-A880-FE41995C9F82.run-efi-updater": "No",
+
+    "PlatformInfo.Generic.SystemProductName": "iMacPro1,1",
+    "PlatformInfo.Generic.SystemSerialNumber": "REPLACE_WITH_VALID_SERIAL",
+    "PlatformInfo.Generic.MLB": "REPLACE_WITH_VALID_MLB",
+    "PlatformInfo.Generic.SystemUUID": "00000000-0000-0000-0000-000000000000",
+    "PlatformInfo.Generic.ROM": { "$data": "ESIzRFVm" },
+
+    "UEFI.Quirks.RequestBootVarRouting": true
+  }
+}
