@@ -22,7 +22,7 @@ jobs:
           python-version: "3.12"
       - name: Verify shipped binary against MANIFEST.sha256
         shell: bash
-        run: cd bin && sha256sum -c MANIFEST.sha256
+        run: cd bin && tr -d '\r' < MANIFEST.sha256 | sha256sum -c -
       - name: Build EFI tree (downloads pinned OpenCore, runs ocvalidate)
         run: python tools/make_efi.py --profile ${{ matrix.profile }} --out out/${{ matrix.profile }} --force
       - name: Show receipt
