@@ -1,0 +1,51 @@
+{
+  "schema": "nextcore.engineering-preview.v1",
+  "date": "2026-09-19",
+  "tag": "engineering-preview-20260919",
+  "channel": "preview",
+  "current_status": "Read-only EFI utility; no qualified physical target",
+  "target_state": "macOS 27, functioning Metal, and supported real-Intel-Mac installation",
+  "source": {
+    "schema": "26x86.installation-utility-source/1",
+    "source_revision": "f43854d5139f687bc359decf7e132eba3afc9aba",
+    "source_dirty": false,
+    "source_tree_sha256": "d89fa0f3544792334204e0112fdaa9dbc2f31ed399f12f510c1f514c03d3d365",
+    "efi_sha256": "b6caefe893009613ae6e89b1daa0e0f7d898dea4215371ac0abf142a467d6e0e",
+    "build_command": "cargo build --locked --release --target x86_64-unknown-uefi --manifest-path nextcore/installation-utility/Cargo.toml; build source and registry paths remapped to neutral prefixes",
+    "toolchain": "rustc 1.98.1 (48a229cea 2026-09-01)"
+  },
+  "build_profile": "release-policy",
+  "contains_apple_payload": false,
+  "installation_support": false,
+  "qualified_real_mac_models": [],
+  "acceptance": {
+    "macos_boot_verified": false,
+    "metal_verified": false,
+    "installation_verified": false,
+    "physical_mac_verified": false,
+    "recovery_verified": false,
+    "dfu_verified": false,
+    "release_eligible": false
+  },
+  "checks": {
+    "iso_structure_verified": true,
+    "notices_contents_verified": true,
+    "qemu_ovmf_default_policy_refusal_observed": true,
+    "scope": "This exact ISO entered the utility and refused an unsupported virtual machine; no physical device was tested.",
+    "serial_sha256": "992ac8dec0672e9b1daf2efd526fcf457b4a8c0d9d2492cd40bd1b109269a7d7"
+  },
+  "files": {
+    "nextcore-installation-preview.iso": {
+      "bytes": 17641472,
+      "sha256": "cd79ef7bfbc8fc3273064662472a37073b0dfa47ace119527b27e08413a4c62f"
+    },
+    "nextcore-installation-preview.zip": {
+      "bytes": 100489,
+      "sha256": "79136f5f22b1f816c1f1548cfcaa435c8e9dc1746c5c7ee5b02b955da711c40f"
+    },
+    "LICENSES.txt": {
+      "bytes": 330236,
+      "sha256": "f84ddc58031edeaf82ef0c4b6e9d51923e5c65c8697ac53bdca814e5f47471dd"
+    }
+  }
+}
