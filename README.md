@@ -1,28 +1,32 @@
 # NextCore
 
-**Current Status:** Engineering preview, updated 19 September 2026. macOS 27 boot, a functioning guest Metal driver, physical installation and Recovery/DFU completion are **not verified**. No real Intel Mac model is qualified for this preview.
+**Current Status:** NextCore 1.3.0 is a research preview, updated 2 October 2026. The current normal EFI, separate installation utility, research runtime, ISO and verified archives are built from one immutable main revision. Interactive Recovery utilities, installed GUI operation, macOS 27 operation, Metal, physical installation and hardware qualification remain unverified for these artifacts.
 
-**Target State:** Working macOS 27 on supported real Intel Macs through NextCore, functional Metal without a performance promise, and a separate EFI NextCore Installation Utility.
+**Target State:** Direct EFI boot on supported Intel systems, a simple Computer → Prepare → Review setup flow with GUI, TUI and CLI access, an interactive Recovery environment and an installed desktop. No intermediate Linux guest is part of the shipped boot path.
 
+- [Download NextCore 1.3.0](https://github.com/26x86/NextCore/releases/tag/v1.3.0)
+- [Current support files](https://26x86.crevision.kr/nextcore-support/catalog.json)
 - [Official documentation](https://26x86.github.io/)
-- [Detailed development progress](https://26x86.github.io/progress/)
-- [Downloads and capability limits](https://26x86.github.io/downloads/)
-- [19 September engineering preview](https://github.com/26x86/NextCore/releases/tag/engineering-preview-20260919)
+- [Development progress](https://26x86.github.io/progress/)
 
-## Installation utility preview
+## Version 1.3 files
 
-The preview ISO and EFI package contain the default release-policy utility. They contain no macOS installer or Apple firmware. The current utility provides read-only planning and partition inspection for development; installation writes and boot-entry changes are unavailable. Unsupported platforms and virtual machines are refused by the default policy. Release admission remains blocked pending independent physical qualification; SMBIOS strings are not authenticity proof.
+`BOOTX64.EFI` is the normal x86 UEFI application. `NXINSTALL.EFI` is the separate read-only installation utility. `nextcore-installation-research.iso` contains the research utility and its separate runtime; it is not a macOS installer. `NXARMJIT.efi` is the research runtime, not the normal firmware boot entry.
 
-Read-only GPT inspection was exercised separately in an internal VM research profile against disposable 512-byte and 4096-byte sector images. Those checks do not qualify the downloadable default-policy build for physical installation. Host image-transaction tests do not establish EFI installation.
+`nextcore-direct-efi.zip` groups the normal EFI configuration, installation utility, ISO and notices. `prebuiltefi.zip` contains the normal EFI, research runtime, configuration, source manifest and notices. Individual files, source receipts and archive verification receipts are also available in the release.
 
-Verify the downloaded artifacts against `MANIFEST.sha256`. The ISO and EFI ZIP include `LICENSES.txt` with project/dependency notices and exact third-party covered-source access instructions. `release.json` records immutable build provenance and explicitly false acceptance flags.
+Verify downloads against `SHA256SUMS`. `release.json` records the exact compiled private monorepo revision separately from this public repository's main/tag revision, file sizes, SHA-256 digests and explicit acceptance limits. The recorded source receipts are build metadata, not a third-party source attestation.
+
+The research installation utility supports read-only inspection and planning. Installation writes and firmware boot-entry changes are unavailable. It does not establish physical installation or support for a particular machine. Earlier macOS 26 launchd/WindowServer observations belong to their original inputs and binaries, and do not qualify the newly built 1.3 set.
 
 ## Public distribution boundary
 
-This repository distributes reviewed binaries, hashes and user documentation. Original implementation source, private research, raw restore evidence, signing material and Apple assets are not included. The old `bin/` picker and generator profiles are historical engineering material; they are not a supported release and do not inherit the preview's admission policy. See [legacy tooling](LEGACY_TOOLING.md) for that archive only.
+This repository distributes reviewed binaries, hashes and user documentation. The exact consolidated implementation source is in the private NextCore-Stuff repository; public component repositories are separate historical/module sources and are not interchangeable pins for this release. Original Apple media, signing material, SMC secrets and raw execution evidence are not included.
+
+The old `bin/` picker and generator profiles are preserved historical material. Use the versioned 1.3 release assets for this research preview. See [legacy tooling](LEGACY_TOOLING.md) for the archive.
+
+GitHub-hosted source checks could not run because of the account billing/spending restriction. Local checks and artifact verification are recorded separately; hosted CI is not reported as passed. The generic host workspace test also encountered a UEFI/host panic-handler conflict before running tests; focused host validation is recorded in the release manifest.
 
 ## Notices
 
-This product includes software developed by Dortania, OpenCore Legacy Patcher contributors, and the 26x86 project.
-
-See [the project license](LICENSE.txt) and the distribution's `LICENSES.txt`. NextCore is not affiliated with or endorsed by Apple.
+See [the project license](LICENSE.txt) and the distribution's complete `LICENSES.txt` for project/dependency notices and covered-source access information. NextCore is not affiliated with or endorsed by Apple.
